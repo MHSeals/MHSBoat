@@ -13,6 +13,8 @@ setup(
         ("share/" + package_name, ["package.xml"]),
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
         (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*'))),
+        (os.path.join('share', package_name, 'data'), glob(os.path.join('data', '*'))),
+        (os.path.join('share', package_name, 'msgs'), glob(os.path.join('msgs', '*.msg'))),
     ],
     install_requires=["setuptools"],
     zip_safe=True,
