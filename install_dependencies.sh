@@ -9,7 +9,11 @@ else
     echo "No compatible graphics detected."
 fi
 
-pip3 install pyyaml matplotlib scikit-learn ultralytics torch torchvision 
+# Uninstall conflicting OpenCV versions
+pip3 uninstall -y opencv-contrib-python opencv-python-headless opencv-contrib-python-headless
+
+# Install necessary Python dependencies
+pip3 install pyyaml matplotlib scikit-learn ultralytics torch torchvision opencv-python
 
 sudo apt -y install \
-ros-humble-velodyne_driver \
+ros-humble-velodyne_driver

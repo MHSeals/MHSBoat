@@ -10,6 +10,12 @@ find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)
 find_package(ament_lint_auto REQUIRED)
 find_package(ament_lint_common REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+# Generate custom messages
+rosidl_generate_interfaces(${PROJECT_NAME}
+    "msg/YoloOutput.msg"
+)
 
 # Install Python modules
 ament_python_install_package(${PROJECT_NAME})
@@ -35,5 +41,7 @@ install(FILES package.xml resource/${PROJECT_NAME}
 
 # Run linters
 ament_lint_auto_find_test_dependencies()
+
+ament_export_dependencies(rosidl_default_runtime)
 
 ament_package()

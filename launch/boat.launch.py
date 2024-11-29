@@ -30,12 +30,12 @@ def generate_launch_description():
     #     arguments=['-d', LaunchConfiguration('rvizconfig')],
     # )
 
-    sensor_node = launch_ros.actions.Node(
+    camera_node = launch_ros.actions.Node(
         package='mhsboat',
         executable='python3',
-        name='sensors',
+        name='camera',
         output='screen',
-        arguments=[os.path.join(pkg_share, 'scripts', 'sensors.py')],
+        arguments=[os.path.join(pkg_share, 'mhsboat', 'sensors', 'sensors.py')],
     )
 
     motor_node = launch_ros.actions.Node(
@@ -43,7 +43,7 @@ def generate_launch_description():
         executable='python3',
         name='motors',
         output='screen',
-        arguments=[os.path.join(pkg_share, 'scripts', 'motors.py')],
+        arguments=[os.path.join(pkg_share, 'mhsboat', 'motors.py')],
     )
 
     boat_state_node = launch_ros.actions.Node(
@@ -51,13 +51,13 @@ def generate_launch_description():
         executable='python3',
         name='boat_state',
         output='screen',
-        arguments=[os.path.join(pkg_share, 'scripts', 'boat_state.py')],
+        arguments=[os.path.join(pkg_share, 'mhsboat', 'boat_state.py')],
     )
 
     return launch.LaunchDescription([
         # launch.actions.DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path)
         # rviz_node,
-        sensor_node,
+        camera_node,
         motor_node,
         boat_state_node
     ])
