@@ -30,27 +30,31 @@ def generate_launch_description():
     #     arguments=['-d', LaunchConfiguration('rvizconfig')],
     # )
 
+    # Define the nodes to be launched concurrently, use the entry points defined in setup.py
     camera_node = launch_ros.actions.Node(
+        package='camera_ros',
+        executable='camera_node',
+    )
+
+    yolo_node = launch_ros.actions.Node(
         package='mhsboat',
-        executable='python3',
-        name='camera',
+        executable='yolo',
+        name='yolo',
         output='screen',
-        arguments=[os.path.join(pkg_share, 'mhsboat', 'sensors', 'sensors.py')],
+        arguments=[os.path.join(pkg_share, 'mhsboat', 'sensors', 'yolo.py')],
     )
 
     motor_node = launch_ros.actions.Node(
         package='mhsboat',
-        executable='python3',
+        executable='motors',
         name='motors',
-        output='screen',
         arguments=[os.path.join(pkg_share, 'mhsboat', 'motors.py')],
     )
 
     boat_state_node = launch_ros.actions.Node(
         package='mhsboat',
-        executable='python3',
+        executable='boat_state',
         name='boat_state',
-        output='screen',
         arguments=[os.path.join(pkg_share, 'mhsboat', 'boat_state.py')],
     )
 
@@ -58,6 +62,7 @@ def generate_launch_description():
         # launch.actions.DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path)
         # rviz_node,
         camera_node,
+        yolo_node,
         motor_node,
         boat_state_node
     ])

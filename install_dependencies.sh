@@ -31,5 +31,5 @@ sudo apt -y install \
 ros-humble-velodyne-driver \
 ros-humble-cv-bridge \
 ros-humble-camera-ros \
-rosidl_default_generators \
-rosidl_default_runtime
+ros-humble-rosidl-default-generators \
+ros-humble-rosidl-default-runtime

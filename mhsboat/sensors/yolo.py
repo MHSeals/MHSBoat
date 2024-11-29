@@ -24,7 +24,7 @@ class CameraSubscriber(Node):
     def __init__(self):
         # Subscribe to the camera publisher to get the images
         super().__init__("camera_subscriber")
-        self.create_subscription(Image, "/color/image_raw", self.callback, 10)
+        self.create_subscription(Image, "/image_raw", self.callback, 10)
         
         # Create a publisher to output detection data 
         self.publisher = self.create_publisher(YoloOutput, "/yolo_output", 10)
@@ -316,7 +316,6 @@ def main():
     rclpy.spin(cam_sub)
     cam_sub.destroy_node()
     rclpy.shutdown()
-
 
 if __name__ == "__main__":
     main()

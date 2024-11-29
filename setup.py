@@ -22,4 +22,11 @@ setup(
     description="MHSeals Boat Scripts",
     license="GNU GPLv3",
     tests_require=["pytest"],
+    entry_points={ # All scripts that run standalone should be here if run through the launch file
+        'console_scripts': [
+            'boat_state = mhsboat.boat_state:main',
+            'motors = mhsboat.motors:main',
+            'yolo = mhsboat.sensors.yolo:main',
+        ],
+    }
 )

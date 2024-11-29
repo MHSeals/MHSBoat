@@ -21,19 +21,12 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 ament_python_install_package(${PROJECT_NAME})
 
 # Define directories to install
-set(INSTALL_DIRS
+install(DIRECTORY 
+  config 
   launch
-  config
-  resources
+  data
+  DESTINATION share/${PROJECT_NAME}
 )
-
-# Install directories
-foreach(dir ${INSTALL_DIRS})
-  install(DIRECTORY ${dir}/
-    DESTINATION share/${PROJECT_NAME}/${dir}
-  )
-endforeach()
-
 # Install package.xml and resource index
 install(FILES package.xml resource/${PROJECT_NAME}
   DESTINATION share/${PROJECT_NAME}
