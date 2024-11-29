@@ -16,8 +16,8 @@ import time
 import numpy as np
 
 # Get the YOLOv11 weights
-model_path = path.join(path.dirname(path.realpath(__file__)), '..', '..', "data", "best.pt")
-# Start a YOLO model that uses the weights from training
+model_path = path.join(path.dirname(path.realpath(__file__)), '..', '..', '..', '..', 'share', 'mhsboat', 'data', 'best.pt')
+# Start a YOLO model that uses the weights from training 
 model = YOLO(model_path)
 
 class CameraSubscriber(Node):
