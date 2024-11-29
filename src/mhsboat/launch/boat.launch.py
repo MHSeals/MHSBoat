@@ -34,6 +34,12 @@ def generate_launch_description():
     camera_node = launch_ros.actions.Node(
         package='camera_ros',
         executable='camera_node',
+        output='screen',
+        parameters=[{
+            'width': 640,   
+            'height': 480,
+            'log_level': 'debug',   
+        }]
     )
 
     yolo_node = launch_ros.actions.Node(
@@ -41,7 +47,7 @@ def generate_launch_description():
         executable='yolo',
         name='yolo',
         output='screen',
-        arguments=[os.path.join(pkg_share, 'mhsboat', 'sensors', 'yolo.py')],
+        arguments=[os.path.join(pkg_share, 'mhsboat', 'yolo.py')],
     )
 
     motor_node = launch_ros.actions.Node(

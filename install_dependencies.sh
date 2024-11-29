@@ -21,10 +21,11 @@ else
 fi
 
 # Uninstall conflicting OpenCV versions
-sudo pip3 uninstall -y opencv-contrib-python opencv-python-headless opencv-contrib-python-headless
+pip3 uninstall -y opencv-contrib-python opencv-python-headless opencv-contrib-python-headless numpy
 
 # Install necessary Python dependencies
-sudo pip3 install pyyaml matplotlib scikit-learn ultralytics torch torchvision opencv-python
+pip3 install pyyaml matplotlib scikit-learn ultralytics torch torchvision opencv-python
+pip3 install numpy==1.26.1
 
 # Install necessary ROS2 Humble packages
 sudo apt -y install \

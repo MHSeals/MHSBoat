@@ -10,12 +10,10 @@
   <!-- Build dependencies -->
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>ament_cmake_python</buildtool_depend>
-  <build_depend>rosidl_default_generators</build_depend>
 
   <!-- Run dependencies -->
   <exec_depend>ros2launch</exec_depend>
   <exec_depend>rclpy</exec_depend>
-  <exec_depend>rosidl_default_runtime</exec_depend>
   <exec_depend>velodyne_driver</exec_depend>
   <exec_depend>cv_bridge</exec_depend>
   <exec_depend>camera-ros</exec_depend>

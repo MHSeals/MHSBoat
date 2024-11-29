@@ -5,7 +5,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
-from mhsboat.msgs import YoloOutput
+from boat_interfaces.msg import YoloOutput
 import cv2
 from cv_bridge import CvBridge
 from ultralytics import YOLO

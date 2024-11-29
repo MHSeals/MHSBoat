@@ -1,3 +1,6 @@
 **/__pycache__/
 .vscode
 temp.py
+/build
+/log
+/install

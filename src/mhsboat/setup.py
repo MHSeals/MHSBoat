@@ -26,7 +26,7 @@ setup(
         'console_scripts': [
             'boat_state = mhsboat.boat_state:main',
             'motors = mhsboat.motors:main',
-            'yolo = mhsboat.sensors.yolo:main',
+            'yolo = mhsboat.yolo:main',
         ],
     }
 )
