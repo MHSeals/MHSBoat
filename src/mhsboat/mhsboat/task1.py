@@ -19,4 +19,3 @@ Notes + Goals:
 
 def start_task1():
     return
-#This is the greates plaaaaaaan
