@@ -67,8 +67,8 @@ def generate_launch_description():
     return launch.LaunchDescription([
         # launch.actions.DeclareLaunchArgument(name='rvizconfig', default_value=default_rviz_config_path)
         # rviz_node,
-        camera_node,
-        yolo_node,
+        # camera_node,
+        # yolo_node,
         motor_node,
         boat_state_node
     ])

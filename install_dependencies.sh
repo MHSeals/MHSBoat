@@ -31,6 +31,5 @@ pip3 install numpy==1.26.1
 sudo apt -y install \
 ros-humble-velodyne-driver \
 ros-humble-cv-bridge \
-ros-humble-camera-ros \
 ros-humble-rosidl-default-generators \
 ros-humble-rosidl-default-runtime
