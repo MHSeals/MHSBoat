@@ -20,10 +20,14 @@ The scripts aren't entire functional at this point, so any help is useful.
 In order to do PRs/commits, you can run the following commands (be sure to replace the blanks with your GitHub account info):
 
 ```bash
+# Get access to the organization
 sudo apt install gh -y
 gh auth login
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
+
+# Clone the repo
+git clone https://github.com/MHSeals/MHSBoat.git
 ```
 
 Now, in VS Code, you should have the ability to use the source control tab on the left to commit and sync changes that you make. Be sure to pull any changes before you start working to avoid conflicting branches. If you are using a different editor, you can look use git commands in your terminal (be sure to cd into the MHSBoat folder).
