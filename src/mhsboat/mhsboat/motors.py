@@ -7,29 +7,29 @@ from rclpy.node import Node
 from geometry_msgs.msg import TwistStamped
 
 """
-This part of the code create a node that publishes to a topic
-The topic is named 'velocity set'
-It publishes the TwistStamped to the topic
-TwistStamped is the boat's forward, backward, and angular velocity all timestamped
+Subscribe to the cmd_vel topic and run the pwm_output
+function to output the PWM signals to the Odroid with
+basic kinematics calculations.
+NOTE: May seperate access and kinematic scripts if necessary
 """
 class Motors(Node):
     def __init__(self):
         super().__init__("motor_controller")
-        self.cmd_vel_publisher = self.create_publisher(TwistStamped, 'velocityset', 10)
+        self.cmd_vel_subscriber = self.create_subscription(
+            TwistStamped,
+            '/cmd_vel', 
+            self.pwm_output,
+            10,
+        )
         self.cmd_vel = TwistStamped()
 
 """
-Methods are defined to change the boats velocity
-When the method is called, it will set the boat to the new velocity
+Outputs the pwm signal
 """
-    def set_forward_velocity(self, velocity: float):
-        self.cmd_vel.twist.linear.x = velocity
-
-    def set_backward_velocity(self, velocity: float):
-        self.cmd_vel.twist.linear.y = velocity
-
-    def set_angular_velocity(self, velocity: float):
-        self.cmd_vel.twist.angular.z = velocity
+    def pwm_output(self, cmd_vel){
+        # TODO: Calculate the left and right PWM outpust then output it to the Odroid
+        # NOTE: Don't make a new script for everything, it's okay to have multiple processes take place in a single script
+    }
 
 """
 This will create the node
@@ -37,12 +37,13 @@ It will continue to run it before destroying it
 One done it will destroy the node and shutdown rcply
 """
 def main():
-    rclpy.init(args=args)
+    rclpy.init()
     motor_controller = Motors()
     rclpy.spin(Motor_controller)
     motor_controller.destroy_node()
     rclpy.shutdown()
     return
 
+# Runs the main method when used as an executable in the launch script
 if __name__ == "__main__":
     main()
