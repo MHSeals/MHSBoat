@@ -26,6 +26,7 @@ pip3 uninstall -y opencv-contrib-python opencv-python-headless opencv-contrib-py
 # Install necessary Python dependencies
 pip3 install pyyaml matplotlib scikit-learn ultralytics torch torchvision opencv-python
 pip3 install numpy==1.26.1
+pip3 install pygame
 
 # Install necessary ROS2 Humble packages
 sudo apt -y install \
