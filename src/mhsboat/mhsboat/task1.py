@@ -1,5 +1,41 @@
 import numpy as np
 from utils import *
+import rclpy
+from rclpy.node import Node
+
+# TODO: Fix syntax and finish writing task
+
+class task1(Node):
+"""
+Constructor for a node with the name "task1_subscriber"
+Expected to recieve a BouyPair from 'topic'
+Has a queue size of 10
+"""
+  def __init__(self):
+    super().__init__('task1_subscriber')
+    self.subscription = self.create_subscription(
+      BouyPair, '/yolo_output', self.listener_callback, 10
+    )
+      
+#After hearing from node, adjusts so midpt of bouys is in the middle of camera
+  def listener_callback(self, msg):
+    """
+    Psuedo code
+
+    find mind point of bouy pair
+    if too far left
+      power left motor
+    if too far right
+      power right motor
+    if middle
+      power motors evenly
+    """
+
+def start_task1():
+  rclpy.__init__()
+  task1_subscriber = Task1_subscriber()
+  rclpy.spin(task1_subscriber)
+  task1_subscriber.destroy_node
 
 """
 Notes + Goals:
@@ -16,7 +52,3 @@ Notes + Goals:
   was faster for me.
 
 """
-
-def start_task1():
-    return
-#This is the greatest plaaaaaaaaan
